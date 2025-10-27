@@ -287,74 +287,75 @@
 </template>
 <script>
 const project = process.env.VUE_APP_PROJECT
-const configScriptBackend = process.env.VUE_APP_CONFIG_UPLOAD_BACKEND + '/api.php'
-const remoteConfigSample = process.env.VUE_APP_SUBCONVERTER_REMOTE_CONFIG
-const scriptConfigSample = process.env.VUE_APP_SCRIPT_CONFIG
-const filterConfigSample = process.env.VUE_APP_FILTER_CONFIG
+const configScriptBackend = process.env。VUE_APP_CONFIG_UPLOAD_BACKEND + '/api.php'
+const remoteConfigSample = process.env。VUE_APP_SUBCONVERTER_REMOTE_CONFIG
+const scriptConfigSample = process.env。VUE_APP_SCRIPT_CONFIG
+const filterConfigSample = process.env。VUE_APP_FILTER_CONFIG
 const defaultBackend = process.env.VUE_APP_SUBCONVERTER_DEFAULT_BACKEND
-const shortUrlBackend = process.env.VUE_APP_MYURLS_DEFAULT_BACKEND + '/short'
-const configUploadBackend = process.env.VUE_APP_CONFIG_UPLOAD_BACKEND + '/sub.php'
-const basicVideo = process.env.VUE_APP_BASIC_VIDEO
+const shortUrlBackend = process.env。VUE_APP_MYURLS_DEFAULT_BACKEND + '/short'
+const configUploadBackend = process.env。VUE_APP_CONFIG_UPLOAD_BACKEND + '/sub.php'
+const basicVideo = process.env。VUE_APP_BASIC_VIDEO
 const advancedVideo = process.env.VUE_APP_ADVANCED_VIDEO
 const tgBotLink = process.env.VUE_APP_BOT_LINK
-const yglink = process.env.VUE_APP_YOUTUBE_LINK
-const bzlink = process.env.VUE_APP_BILIBILI_LINK
-const downld = 'http://' + window.location.host + '/download.html'
-export default {
+const yglink = process.env。VUE_APP_YOUTUBE_LINK
+const bzlink = process.env。VUE_APP_BILIBILI_LINK
+const downld = 'http://' + window.location。host + '/download.html'
+export 默认 {
   data() {
     return {
-      backendVersion: "",
-      centerDialogVisible: false,
-      activeName: 'first',
+      backendVersion: ""，
+      centerDialogVisible: false，
+      activeName: 'first'，
       // 是否为 PC 端
-      isPC: true,
-      btnBoolean: false,
+      isPC: true，
+      btnBoolean: false，
       options: {
         clientTypes: {
-          Clash: "clash",
-          "Surge4/5": "surge&ver=4",
+          Clash: "clash"，
+          "Surge4/5": "surge&ver=4"，
           "Sing-Box": "singbox",
-          V2Ray: "v2ray",
-          Trojan: "trojan",
-          ShadowsocksR: "ssr",
-          "混合订阅（mixed）": "mixed",
-          Surfboard: "surfboard",
-          Quantumult: "quan",
-          "Quantumult X": "quanx",
-          Loon: "loon",
-          Mellow: "mellow",
-          Surge3: "surge&ver=3",
-          Surge2: "surge&ver=2",
+          V2Ray: "v2ray"，
+          Trojan: "trojan"，
+          ShadowsocksR: "ssr"，
+          "混合订阅（mixed）": "mixed"，
+          Surfboard: "surfboard"，
+          Quantumult: "quan"，
+          "Quantumult X": "quanx"，
+          Loon: "loon"，
+          Mellow: "mellow"，
+          Surge3: "surge&ver=3"，
+          Surge2: "surge&ver=2"，
           ClashR: "clashr",
-          "Shadowsocks(SIP002)": "ss",
-          "Shadowsocks Android(SIP008)": "sssub",
-          ShadowsocksD: "ssd",
-          "自动判断客户端": "auto",
-        },
+          "Shadowsocks(SIP002)": "ss"，
+          "Shadowsocks Android(SIP008)": "sssub"，
+          ShadowsocksD: "ssd"，
+          "自动判断客户端": "auto"，
+        }，
         shortTypes: {
-          "v1.mk": "https://v1.mk/short",
-          "d1.mk": "https://d1.mk/short",
-          "dlj.tf": "https://dlj.tf/short",
-          "suo.yt": "https://suo.yt/short",
-        },
+          "自建": "https://shorts.mdcg.dpdns.org/yys/short"，
+          "v1.mk": "https://v1.mk/short"，
+          "d1.mk": "https://d1.mk/short"，
+          "dlj.tf": "https://dlj.tf/short"，
+          "suo.yt": "https://suo.yt/short"，
+        }，
         customBackend: {
           "自建【vless reality+hy1+hy2】": "https://subio.zeabur.app",
           "CM应急备用后端【vless reality+hy1+hy2】": "https://subapi.fxxk.dedyn.io",
           "肥羊增强型后端【vless reality+hy1+hy2】": "https://url.v1.mk",
           "肥羊备用后端【vless reality+hy1+hy2】": "https://sub.d1.mk",
-          nameless13提供: "https://www.nameless13.com",
-          subconverter作者提供: "https://sub.xeton.dev",
+          nameless13提供: "https://www.nameless13.com"，
+          subconverter作者提供: "https://sub.xeton.dev"，
           "sub-web作者提供": "https://api.wcc.best",
         },
         backendOptions: [
           { value: "https://subio.zeabur.app" },
-          { value: "https://subapi.fxxk.dedyn.io" },
-          { value: "https://url.v1.mk" },
-          { value: "https://sub.d1.mk" },
-          { value: "https://www.nameless13.com" },
-          { value: "https://sub.xeton.dev" },
-          { value: "https://api.wcc.best" },
-        ],
+          { value: "https://subapi.fxxk.dedyn.io" }，
+          { value: "https://url.v1.mk" }，
+          { value: "https://sub.d1.mk" }，
+          { value: "https://www.nameless13.com" }，
+          { value: "https://sub.xeton.dev" }，
+          { value: "https://api.wcc.best" }，
+        ]，
         remoteConfig: [
           {
             label: "CM规则",
@@ -374,7 +375,7 @@ export default {
               {
                 label: "CM_Online_Full 识别多地区分组(与Github同步)",
                 value: "https://raw.githubusercontent.com/cmliu/ACL4SSR/main/Clash/config/ACL4SSR_Online_Full.ini"
-              },
+              }，
               {
                 label: "CM_Online_Full_CF 识别多地区、CloudFlareCDN 分组 Worker节点专用(与Github同步)",
                 value: "https://raw.githubusercontent.com/cmliu/ACL4SSR/main/Clash/config/ACL4SSR_Online_Full_CF.ini"
@@ -395,7 +396,7 @@ export default {
               {
                 label: "默认",
                 value: "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/config/ACL4SSR_Online_Full_NoAuto.ini"
-              },
+              }，
               {
                 label: "默认（自动测速）",
                 value: "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/config/ACL4SSR_Online_Full_AdblockPlus.ini"
@@ -725,94 +726,94 @@ export default {
               {
                 label: "史迪仔-负载均衡",
                 value: "https://raw.githubusercontent.com/Mazeorz/airports/master/Clash/Stitch-Balance.ini"
-              },
+              }，
               {
-                label: "Maying",
+                label: "Maying"，
                 value: "https://raw.githubusercontent.com/SleepyHeeead/subconverter-config/master/remote-config/customized/maying.ini"
-              },
+              }，
               {
-                label: "Ytoo",
+                label: "Ytoo"，
                 value: "https://subweb.s3.fr-par.scw.cloud/RemoteConfig/customized/ytoo.ini"
-              },
+              }，
               {
                 label: "w8ves",
                 value: "https://raw.nameless13.com/api/public/dl/M-We_Fn7/w8ves.ini"
-              },
+              }，
               {
                 label: "NyanCAT",
                 value: "https://raw.githubusercontent.com/SleepyHeeead/subconverter-config/master/remote-config/customized/nyancat.ini"
-              },
+              }，
               {
-                label: "Nexitally",
+                label: "Nexitally"，
                 value: "https://subweb.s3.fr-par.scw.cloud/RemoteConfig/customized/nexitally.ini"
-              },
+              }，
               {
-                label: "SoCloud",
+                label: "SoCloud"，
                 value: "https://raw.githubusercontent.com/SleepyHeeead/subconverter-config/master/remote-config/customized/socloud.ini"
-              },
+              }，
               {
-                label: "ARK",
+                label: "ARK"，
                 value: "https://raw.githubusercontent.com/SleepyHeeead/subconverter-config/master/remote-config/customized/ark.ini"
-              },
+              }，
               {
-                label: "N3RO",
+                label: "N3RO"，
                 value: "https://gist.githubusercontent.com/tindy2013/1fa08640a9088ac8652dbd40c5d2715b/raw/n3ro_optimized.ini"
-              },
+              }，
               {
                 label: "Scholar",
                 value: "https://gist.githubusercontent.com/tindy2013/1fa08640a9088ac8652dbd40c5d2715b/raw/scholar_optimized.ini"
-              },
+              }，
               {
                 label: "Flowercloud",
                 value: "https://subweb.s3.fr-par.scw.cloud/RemoteConfig/customized/flower.ini"
               }
             ]
-          },
+          }，
           {
-            label: "特殊",
+            label: "特殊"，
             options: [
               {
                 label: "NeteaseUnblock",
                 value: "https://raw.githubusercontent.com/SleepyHeeead/subconverter-config/master/remote-config/special/netease.ini"
-              },
+              }，
               {
-                label: "Basic",
+                label: "Basic"，
                 value: "https://raw.githubusercontent.com/SleepyHeeead/subconverter-config/master/remote-config/special/basic.ini"
               }
             ]
           }
         ]
-      },
+      }，
       form: {
-        sourceSubUrl: "",
-        clientType: "",
-        customBackend: this.getUrlParam() == "" ? "https://url.v1.mk" : this.getUrlParam(),
-        shortType: "https://v1.mk/short",
-        remoteConfig: "https://raw.githubusercontent.com/cmliu/ACL4SSR/main/Clash/config/ACL4SSR_Online.ini",
-        excludeRemarks: "",
-        includeRemarks: "",
-        filename: "",
-        rename: "",
-        devid: "",
-        interval: "",
-        emoji: true,
-        nodeList: false,
-        extraset: false,
-        tls13: false,
+        sourceSubUrl: ""，
+        clientType: ""，
+        customBackend: this。getUrlParam() == "" ? "https://url.v1.mk" : this。getUrlParam(),
+        shortType: "https://v1.mk/short"，
+        remoteConfig: "https://raw.githubusercontent.com/cmliu/ACL4SSR/main/Clash/config/ACL4SSR_Online.ini"，
+        excludeRemarks: ""，
+        includeRemarks: ""，
+        filename: ""，
+        rename: ""，
+        devid: ""，
+        interval: ""，
+        emoji: true，
+        nodeList: false，
+        extraset: false，
+        tls13: false，
         udp: false,
-        xudp: false,
-        tfo: false,
-        sort: false,
-        expand: true,
-        scv: false,
-        fdn: false,
-        appendType: false,
-        insert: false, // 是否插入默认订阅的节点，对应配置项 insert_url
-        new_name: true, // 是否使用 Clash 新字段
+        xudp: false，
+        tfo: false，
+        sort: false，
+        expand: true，
+        scv: false，
+        fdn: false，
+        appendType: false，
+        insert: false， // 是否插入默认订阅的节点，对应配置项 insert_url
+        new_name: true， // 是否使用 Clash 新字段
         tpl: {
           surge: {
             doh: false // dns 查询是否使用 DoH
-          },
+          }，
           clash: {
             doh: false
           },
@@ -1310,4 +1311,5 @@ export default {
   }
 };
 </script>
+
 
